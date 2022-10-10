@@ -25,6 +25,8 @@ def process_information():
             max_cpu[0], max_cpu[1] = line[10][:20], float(line[2])
         if float(line[3]) > max_memory[1]:
             max_memory[0], max_memory[1] = line[10][:20], float(line[3])
+    memory = round(memory, 1)
+    cpu = round(cpu, 1)
 
     with open(logs, 'w') as f:
         rec_to_file("Отчёт о состоянии системы:", f)
@@ -46,3 +48,4 @@ def rec_to_file(text, file_name):
 
 if __name__ == '__main__':
     process_information()
+    
